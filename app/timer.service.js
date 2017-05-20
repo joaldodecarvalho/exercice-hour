@@ -7,7 +7,7 @@
         },
 
         getHour() {
-            return this.hour = new Date().toTimeString();
+            return this.hour = new Date().toLocaleTimeString();
         },
 
         getCurrentHour(delay, callback) {
@@ -19,5 +19,5 @@
         }
     });
 
-    var hour = new Date().toTimeString() ;
+    var hour = new Date().toLocaleTimeString() ;
 })(window.app || (window.app = {}));
