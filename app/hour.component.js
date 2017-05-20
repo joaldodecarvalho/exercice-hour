@@ -1,19 +1,41 @@
-(function(app) {
-
-    var Component = ng.core.Component;
-    var TimerService = app.TimerService;
-
-    app.HourComponent = Component({
-        selector: 'hour',
-        template: '<h1>Horário de Brasília: {{hour}}</h1>'
-    })
-    .Class({
-        constructor: [TimerService, function HourComponent(timerService){
-            let self = this;
-            timerService.getCurrentHour(1000, function(hour) {
-                self.hour = hour;
-            });
-        }]
-    });
-
-})(window.app || (window.app = {}));
+System.register(['@angular/core', './timer.service'], function(exports_1, context_1) {
+    "use strict";
+    var __moduleName = context_1 && context_1.id;
+    var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+        var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+        if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+        else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+        return c > 3 && r && Object.defineProperty(target, key, r), r;
+    };
+    var __metadata = (this && this.__metadata) || function (k, v) {
+        if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+    };
+    var core_1, timer_service_1;
+    var HourComponent;
+    return {
+        setters:[
+            function (core_1_1) {
+                core_1 = core_1_1;
+            },
+            function (timer_service_1_1) {
+                timer_service_1 = timer_service_1_1;
+            }],
+        execute: function() {
+            HourComponent = (function () {
+                function HourComponent(timerService) {
+                    var _this = this;
+                    timerService.getCurrentHour(1000, function (hour) { return _this.hour = hour; });
+                }
+                HourComponent = __decorate([
+                    core_1.Component({
+                        selector: 'hour',
+                        template: '<h1>Horário de Brasília: {{hour}}</h1>'
+                    }), 
+                    __metadata('design:paramtypes', [timer_service_1.TimerService])
+                ], HourComponent);
+                return HourComponent;
+            }());
+            exports_1("HourComponent", HourComponent);
+        }
+    }
+});
